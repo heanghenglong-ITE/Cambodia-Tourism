@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:text="Place Detail"
+                android:text="ប្រាសាទអំបែងនំ"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="20sp"
@@ -55,14 +55,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>
-    
+
     <ImageView
         android:id="@+id/place_image"
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:src="@drawable/ombengnontemple"
         android:layout_below="@id/toolbar" />
-    
+
     <LinearLayout
         android:id="@+id/place_hole"
         android:layout_width="match_parent"
@@ -79,11 +79,12 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/place_name"
+                android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:text="ប្រាសាទអំបែងនំ"
+                android:text="ការពិពណ៌នា"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -120,6 +121,7 @@
                 android:layout_marginTop="1dp"
                 android:text="ទីតាំង៖ ឃុំសាគ្រាម ខេត្តកំពង់ធំ"
                 android:textSize="20sp" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -158,6 +160,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/show_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ទីតាំងនៅលើផែនទី"
