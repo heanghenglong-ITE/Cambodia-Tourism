@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             selecteFragment = new SettingFragment();
         }else {
             return false;
-        }
+        };
 
 
         loadFragment(selecteFragment);

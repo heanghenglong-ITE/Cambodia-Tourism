@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.ExploreFragment">
-    
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
         android:padding="10dp"
-        android:text="Explore Now"
+        android:text="@string/explore_now"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/black" />
-    
+
     <EditText
         android:id="@+id/search"
         android:layout_width="match_parent"
@@ -24,23 +24,26 @@
         android:background="@drawable/rounded_editing"
         android:drawableLeft="@drawable/search_icon"
         android:drawablePadding="10dp"
-        android:hint="Search...."
+        android:hint="@string/search"
         android:inputType="text"
         android:padding="10dp"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:autofillHints="" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="540dp"
         android:layout_marginTop="120dp"
-        android:paddingLeft="15dp" />
+        android:paddingLeft="15dp"
+        tools:listitem="@layout/viewholder_explore"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:visibility="gone" />
+        android:visibility="invisible" />
 
 </FrameLayout>
