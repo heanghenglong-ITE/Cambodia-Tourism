@@ -120,7 +120,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="40dp"
                 android:fontFamily="sans-serif-black"
-                android:text="waterfall"
+                android:text="Waterfall"
                 android:textSize="35sp"
                 tools:ignore="RelativeOverlap" />
 
@@ -246,7 +246,7 @@
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="40dp"
                 android:fontFamily="sans-serif-black"
-                android:text="Hospitol"
+                android:text="Hospital"
                 android:textSize="35sp"
                 tools:ignore="RelativeOverlap" />
 

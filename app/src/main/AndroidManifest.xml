@@ -13,6 +13,30 @@
         android:theme="@style/Theme.CambodiaTourism"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.Hotel"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Food"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Hospital"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Forest"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Sea"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Waterfall"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Wat"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Temple"
+            android:exported="false" />
+        <activity
             android:name=".Activity.AboutActivity"
             android:exported="false" />
         <activity
@@ -30,8 +54,7 @@
         </activity>
         <activity
             android:name=".Activity.MainActivity"
-            android:theme="@style/Theme.CambodiaTourism">
-        </activity>
+            android:theme="@style/Theme.CambodiaTourism" />
     </application>
 
 </manifest>
