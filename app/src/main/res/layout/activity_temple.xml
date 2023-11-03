@@ -1,9 +1,615 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#36594141"
     tools:context=".Activity.Temple">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        tools:ignore="ExtraText">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="?actionBarSize"
+            android:background="@drawable/search_background">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:padding="14dp"
+                android:src="@drawable/icon_arrow_back" />
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="4dp"
+                android:src="@android:drawable/ic_search_category_default" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/Categories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:padding="10dp"
+            android:text="Temple"
+            android:textSize="30sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="2dp"
+            android:background="#9A59DA5E">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/tourattr_image1"
+                android:layout_width="150dp"
+                android:layout_height="95dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/angkorwat2"
+                app:shapeAppearanceOverlay="@style/ShapeableImageView_AllRoundedCorners" />
+
+
+            <TextView
+                android:id="@+id/tourattr1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="140dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Welcome to"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tourattr_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="97dp"
+                android:fontFamily="sans-serif-black"
+                android:text="AngKor Wat"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tourattr_state1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="114dp"
+                android:layout_marginBottom="10dp"
+                android:text=":Siem Reap"
+                android:textSize="16sp"
+                tools:ignore="DuplicateIds" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="27dp"
+                app:cardBackgroundColor="#597A7070"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/arrow_right"
+                    tools:ignore="DuplicateIds" />
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="2dp"
+            android:background="#9A59DA5E">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/tourattr_image2"
+                android:layout_width="150dp"
+                android:layout_height="95dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/preah_vihear"
+                app:shapeAppearanceOverlay="@style/ShapeableImageView_AllRoundedCorners" />
+
+            <TextView
+                android:id="@+id/tourattr2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="140dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Welcome to"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tourattr_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="88dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Preah Vihear"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tourattr_state2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="10dp"
+                android:text=":Preah Vihear"
+                android:textSize="16sp"
+                tools:ignore="DuplicateIds" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="27dp"
+                app:cardBackgroundColor="#597A7070"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/arrow_right"
+                    tools:ignore="DuplicateIds" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="2dp"
+            android:background="#9A59DA5E">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/tourattr_image3"
+                android:layout_width="150dp"
+                android:layout_height="95dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/koh_ker"
+                app:shapeAppearanceOverlay="@style/ShapeableImageView_AllRoundedCorners" />
+
+            <TextView
+                android:id="@+id/tourattr3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="140dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Welcome to"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tourattr_name3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="135dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Koh Ker"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tourattr_state3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="10dp"
+                android:text=":Preah Vihear"
+                android:textSize="16sp"
+                tools:ignore="DuplicateIds" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="27dp"
+                app:cardBackgroundColor="#597A7070"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/arrow_right"
+                    tools:ignore="DuplicateIds" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="2dp"
+            android:background="#9A59DA5E">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/tourattr_image4"
+                android:layout_width="150dp"
+                android:layout_height="95dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ta_prohm"
+                app:shapeAppearanceOverlay="@style/ShapeableImageView_AllRoundedCorners" />
+
+            <TextView
+                android:id="@+id/tourattr4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="140dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Welcome to"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tourattr_name4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="120dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Ta Prohm"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tourattr_state4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="109dp"
+                android:layout_marginBottom="10dp"
+                android:text=":Siem Reap"
+                android:textSize="16sp"
+                tools:ignore="DuplicateIds" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="27dp"
+                app:cardBackgroundColor="#597A7070"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/arrow_right"
+                    tools:ignore="DuplicateIds" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="2dp"
+            android:background="#9A59DA5E">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/tourattr_image5"
+                android:layout_width="150dp"
+                android:layout_height="95dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/bayon"
+                app:shapeAppearanceOverlay="@style/ShapeableImageView_AllRoundedCorners" />
+
+            <TextView
+                android:id="@+id/tourattr5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="140dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Welcome to"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tourattr_name5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="150dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Bayon"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tourattr_state5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="114dp"
+                android:layout_marginBottom="10dp"
+                android:text=":Siem Reap"
+                android:textSize="16sp"
+                tools:ignore="DuplicateIds" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="27dp"
+                app:cardBackgroundColor="#597A7070"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/arrow_right"
+                    tools:ignore="DuplicateIds" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="2dp"
+            android:background="#9A59DA5E">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/tourattr_image6"
+                android:layout_width="150dp"
+                android:layout_height="95dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ta_nhean"
+                app:shapeAppearanceOverlay="@style/ShapeableImageView_AllRoundedCorners" />
+
+            <TextView
+                android:id="@+id/tourattr6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="140dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Welcome to"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tourattr_name6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="120dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Ta Nhean"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tourattr_state6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="140dp"
+                android:layout_marginBottom="10dp"
+                android:text=":Takeo"
+                android:textSize="16sp"
+                tools:ignore="DuplicateIds" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="27dp"
+                app:cardBackgroundColor="#597A7070"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/arrow_right"
+                    tools:ignore="DuplicateIds" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="2dp"
+            android:background="#9A59DA5E">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/tourattr_image7"
+                android:layout_width="150dp"
+                android:layout_height="95dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/preah_vihear"
+                app:shapeAppearanceOverlay="@style/ShapeableImageView_AllRoundedCorners" />
+
+            <TextView
+                android:id="@+id/tourattr7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="140dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Welcome to"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tourattr_name7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="175dp"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="31dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Banteay Prey Nokor"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tourattr_state7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="5dp"
+                android:text=":Kampong Cham"
+                android:textSize="16sp"
+                tools:ignore="DuplicateIds" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="27dp"
+                app:cardBackgroundColor="#597A7070"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/arrow_right"
+                    tools:ignore="DuplicateIds" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>
