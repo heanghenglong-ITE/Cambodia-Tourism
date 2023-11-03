@@ -38,9 +38,9 @@ public class ExploreFragment extends Fragment {
 
     private void initRecyclerView(View view) {
         ArrayList<ExploreDomain> items = new ArrayList<>();
-        items.add(new ExploreDomain("","",""));
-        items.add(new ExploreDomain("","",""));
-        items.add(new ExploreDomain("","",""));
+        items.add(new ExploreDomain("angkorwat","angkorwat","Siem Reap"));
+        items.add(new ExploreDomain("banontemple","banontemple","Battambang"));
+        items.add(new ExploreDomain("phnomsompov","phnomsompov","Battambang"));
 
         recyclerViewExplore = view.findViewById(R.id.view_explore);
         recyclerViewExplore.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false));
