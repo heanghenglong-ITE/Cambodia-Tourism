@@ -16,7 +16,7 @@
             android:name=".Activity.AboutActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.ProductDetailsActivity"
+            android:name=".Activity.PlaceDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.SplashActivity"
