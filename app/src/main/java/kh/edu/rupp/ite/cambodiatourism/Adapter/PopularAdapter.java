@@ -25,19 +25,24 @@ import kh.edu.rupp.ite.cambodiatourism.Domain.PopularDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
 
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
-    ArrayList<PopularDomain> items = new ArrayList<>();
+    ArrayList<PopularDomain> items;
     DecimalFormat formatter;
+
+    public PopularAdapter(Context context,ArrayList<PopularDomain> items){
+
+        this.items = items;
+        formatter = new DecimalFormat("###,###,###,###");
+    }
 
     public PopularAdapter(ArrayList<PopularDomain> items) {
         this.items = items;
-        formatter = new DecimalFormat("###,###,###");
     }
 
     @NonNull
     @Override
     public PopularAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_popular,parent,false);
-        return new ViewHolder(inflate);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_popular,parent,false);
+        return new ViewHolder(view);
     }
 
     @Override

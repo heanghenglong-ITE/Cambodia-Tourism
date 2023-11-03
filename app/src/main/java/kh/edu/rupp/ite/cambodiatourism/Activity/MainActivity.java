@@ -40,15 +40,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        initRecyclerView();
-
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(this);
 
         if (savedInstanceState == null) {
             loadFragment(new HomeFragment());
         }
-
 
     }
 
@@ -75,34 +72,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             return false;
         }
 
-
         loadFragment(selecteFragment);
         return true;
     }
-//    private void initRecyclerView() {
-//        ArrayList<PopularDomain> items=new ArrayList<>();
-//        items.add(new PopularDomain("pic1","Angkorwat","Siemreab"));
-//        items.add(new PopularDomain("pic2","Waterfall","PaiLen"));
-//        items.add(new PopularDomain("pic3","Montain","Bokkuo"));
-//
-//
-//        recyclerViewPopular=findViewById(R.id.view_pop);
-//        recyclerViewPopular.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-//        adapterPopular=new PopularAdapter(items);
-//        recyclerViewPopular.setAdapter(adapterPopular);
-//
-//
-//        // More HomeFragment
-//        ArrayList<MoreDomain> moreList= new ArrayList<>();
-//        moreList.add(new MoreDomain("Montain","cat1"));
-//        moreList.add(new MoreDomain("WaterFall","cat2"));
-//        moreList.add(new MoreDomain("Beach","cat3"));
-//        moreList.add(new MoreDomain("SignSeeing","cat4"));
-//        moreList.add(new MoreDomain("Temple","cat5"));
-//
-//        recyclerViewMore=findViewById(R.id.view_more);
-//        recyclerViewMore.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-//        adapterMore=new MoreAdapter(moreList);
-//        recyclerViewMore.setAdapter(adapterMore);
-//    }
+
 }

@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import kh.edu.rupp.ite.cambodiatourism.R;
 
-public class ProductDetailsActivity extends AppCompatActivity {
+public class PlaceDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_details);
+        setContentView(R.layout.activity_place_details);
     }
 }
