@@ -17,6 +17,7 @@ import java.util.List;
 
 import kh.edu.rupp.ite.cambodiatourism.Adapter.MoreAdapter;
 import kh.edu.rupp.ite.cambodiatourism.Adapter.PopularAdapter;
+import kh.edu.rupp.ite.cambodiatourism.Domain.ExploreDomain;
 import kh.edu.rupp.ite.cambodiatourism.Domain.MoreDomain;
 import kh.edu.rupp.ite.cambodiatourism.Domain.PopularDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
@@ -54,6 +55,7 @@ public class HomeFragment extends Fragment {
         adapterPopular = new PopularAdapter(items);
         recyclerViewPopular.setAdapter(adapterPopular);
 
+
         ArrayList<MoreDomain> moreList = new ArrayList<>();
         moreList.add(new MoreDomain("Beaches","cat1"));
         moreList.add(new MoreDomain("Camps","cat2"));
@@ -65,5 +67,6 @@ public class HomeFragment extends Fragment {
         recyclerViewMore.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false));
         adapterMore = new MoreAdapter(moreList);
         recyclerViewMore.setAdapter(adapterMore);
+
     }
 }
