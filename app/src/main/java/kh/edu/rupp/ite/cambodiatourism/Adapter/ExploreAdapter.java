@@ -11,11 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-import kh.edu.rupp.ite.cambodiatourism.Domain.ExploreDomain;
+import kh.edu.rupp.ite.cambodiatourism.model.Domain.ExploreDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
 
 public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHolder> {

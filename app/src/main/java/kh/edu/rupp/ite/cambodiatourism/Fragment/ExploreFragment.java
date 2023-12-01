@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import kh.edu.rupp.ite.cambodiatourism.Adapter.ExploreAdapter;
-import kh.edu.rupp.ite.cambodiatourism.Domain.ExploreDomain;
+import kh.edu.rupp.ite.cambodiatourism.model.Domain.ExploreDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
 import kh.edu.rupp.ite.cambodiatourism.databinding.FragmentExploreBinding;
 

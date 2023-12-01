@@ -1,13 +1,11 @@
 package kh.edu.rupp.ite.cambodiatourism.Adapter;
 
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,7 +13,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-import kh.edu.rupp.ite.cambodiatourism.Domain.MoreDomain;
+import kh.edu.rupp.ite.cambodiatourism.model.Domain.MoreDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
 
 public class MoreAdapter extends RecyclerView.Adapter<MoreAdapter.ViewHolder> {

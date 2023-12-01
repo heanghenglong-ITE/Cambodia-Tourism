@@ -2,8 +2,6 @@ package kh.edu.rupp.ite.cambodiatourism.Fragment;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,13 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import kh.edu.rupp.ite.cambodiatourism.Adapter.MoreAdapter;
 import kh.edu.rupp.ite.cambodiatourism.Adapter.PopularAdapter;
-import kh.edu.rupp.ite.cambodiatourism.Domain.ExploreDomain;
-import kh.edu.rupp.ite.cambodiatourism.Domain.MoreDomain;
-import kh.edu.rupp.ite.cambodiatourism.Domain.PopularDomain;
+import kh.edu.rupp.ite.cambodiatourism.model.Domain.MoreDomain;
+import kh.edu.rupp.ite.cambodiatourism.model.Domain.PopularDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
 import kh.edu.rupp.ite.cambodiatourism.databinding.FragmentHomeBinding;
 

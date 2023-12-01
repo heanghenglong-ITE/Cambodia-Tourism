@@ -1,7 +1,6 @@
 package kh.edu.rupp.ite.cambodiatourism.Adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +14,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 
-import org.w3c.dom.Text;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
 
-import kh.edu.rupp.ite.cambodiatourism.Domain.PopularDomain;
+import kh.edu.rupp.ite.cambodiatourism.model.Domain.PopularDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
 
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {

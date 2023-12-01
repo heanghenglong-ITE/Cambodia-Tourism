@@ -182,6 +182,12 @@
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp" />
         </LinearLayout>
+
     </ScrollView>
+
 </FrameLayout>

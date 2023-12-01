@@ -5,23 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
-import java.util.ArrayList;
-
-import kh.edu.rupp.ite.cambodiatourism.Adapter.ExploreAdapter;
-import kh.edu.rupp.ite.cambodiatourism.Adapter.MoreAdapter;
-import kh.edu.rupp.ite.cambodiatourism.Adapter.PopularAdapter;
-import kh.edu.rupp.ite.cambodiatourism.Domain.ExploreDomain;
-import kh.edu.rupp.ite.cambodiatourism.Domain.MoreDomain;
-import kh.edu.rupp.ite.cambodiatourism.Domain.PopularDomain;
 import kh.edu.rupp.ite.cambodiatourism.Fragment.CategoryFragment;
 import kh.edu.rupp.ite.cambodiatourism.Fragment.ExploreFragment;
 import kh.edu.rupp.ite.cambodiatourism.Fragment.HomeFragment;
