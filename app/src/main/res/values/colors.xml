@@ -5,4 +5,10 @@
     <color name="blue">#6200EE</color>
     <color name="b_blue">#2596be</color>
     <color name="setting_red">#FF4433</color>
+    <color name="aqua">#00FFF3</color>
+    <color name="green">#34DF11</color>
+    <color name="orange">#FFC300</color>
+    <color name="purple">#A569BD</color>
+    <color name="white2">#979A9A</color>
+    <color name="yellow">#DFFF00</color>
 </resources>

@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            android:background="@drawable/background_green">
+            android:background="@color/green">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            android:background="@drawable/background_yellow">
+            android:background="@color/yellow">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -110,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            android:background="@drawable/background_blue">
+            android:background="@color/b_blue">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -152,7 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            android:background="@drawable/background_orange">
+            android:background="@color/orange">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -194,7 +194,7 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            android:background="@drawable/background_red">
+            android:background="@color/setting_red">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -236,7 +236,7 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            android:background="@drawable/background_white">
+            android:background="@color/white2">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -278,7 +278,7 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            android:background="@drawable/background_aqua">
+            android:background="@color/aqua">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -320,7 +320,7 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_margin="10dp"
-            android:background="@drawable/background_purple">
+            android:background="@color/purple">
 
             <TextView
                 android:layout_width="wrap_content"
