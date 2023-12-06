@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import kh.edu.rupp.ite.cambodiatourism.CategoryData;
+import kh.edu.rupp.ite.cambodiatourism.Data.CategoryData;
 import kh.edu.rupp.ite.cambodiatourism.R;
 
 public class CategoryAdapter extends RecyclerView.Adapter<MyViewHolder> {

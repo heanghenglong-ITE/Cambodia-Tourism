@@ -21,13 +21,26 @@
         app:closeIcon="@drawable/baseline_clear_24"
         app:searchIcon="@drawable/search_icon"
         android:background="@drawable/seach_background2"/>
-        <androidx.recyclerview.widget.RecyclerView
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recyclerView"
-            android:layout_marginTop="12dp"
-            android:scrollbars="vertical"
-            android:layout_below="@+id/search"/>
-
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:scrollbars="vertical"
+                android:fadeScrollbars="false"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

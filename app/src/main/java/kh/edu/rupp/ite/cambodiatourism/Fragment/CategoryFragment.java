@@ -20,8 +20,9 @@ import kh.edu.rupp.ite.cambodiatourism.Activity.Beaches;
 import kh.edu.rupp.ite.cambodiatourism.Activity.Camps;
 import kh.edu.rupp.ite.cambodiatourism.Activity.Desert;
 import kh.edu.rupp.ite.cambodiatourism.Activity.Forest;
+import kh.edu.rupp.ite.cambodiatourism.Activity.Mountain;
 import kh.edu.rupp.ite.cambodiatourism.Adapter.CategoryAdapter;
-import kh.edu.rupp.ite.cambodiatourism.CategoryData;
+import kh.edu.rupp.ite.cambodiatourism.Data.CategoryData;
 import kh.edu.rupp.ite.cambodiatourism.R;
 import kh.edu.rupp.ite.cambodiatourism.databinding.FragmentCategoryBinding;
 
@@ -64,6 +65,7 @@ public class CategoryFragment extends Fragment {
         dataList.add(new CategoryData("Camps", R.drawable.cat2, Camps.class));
         dataList.add(new CategoryData("Forest", R.drawable.cat3, Forest.class));
         dataList.add(new CategoryData("Desert", R.drawable.cat4, Desert.class));
+        dataList.add(new CategoryData("Mountain", R.drawable.cat5, Mountain.class));
 
 
         adapter = new CategoryAdapter(requireContext(),dataList);

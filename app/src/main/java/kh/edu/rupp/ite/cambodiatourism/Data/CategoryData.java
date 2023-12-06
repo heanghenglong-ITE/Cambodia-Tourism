@@ -1,4 +1,4 @@
-package kh.edu.rupp.ite.cambodiatourism;
+package kh.edu.rupp.ite.cambodiatourism.Data;
 
 public class CategoryData {
     private String dataTitle;
