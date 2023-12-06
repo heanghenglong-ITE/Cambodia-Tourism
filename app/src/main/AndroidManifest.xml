@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,6 +16,18 @@
         android:theme="@style/Theme.CambodiaTourism"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.Desert"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Forest"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Camps"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Beaches"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Hotel"
             android:exported="false" />
         <activity
@@ -23,9 +37,6 @@
             android:name=".Activity.Hospital"
             android:exported="false" />
         <activity
-            android:name=".Activity.Forest"
-            android:exported="false" />
-        <activity
             android:name=".Activity.Sea"
             android:exported="false" />
         <activity
@@ -33,9 +44,6 @@
             android:exported="false" />
         <activity
             android:name=".Activity.Wat"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Temple"
             android:exported="false" />
         <activity
             android:name=".Activity.AboutActivity"

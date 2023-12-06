@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import kh.edu.rupp.ite.cambodiatourism.R;
 
-public class Hotel extends AppCompatActivity {
+public class Camps extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hotel);
+        setContentView(R.layout.activity_camps);
     }
 }
