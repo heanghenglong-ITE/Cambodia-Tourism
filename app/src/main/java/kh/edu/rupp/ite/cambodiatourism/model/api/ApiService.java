@@ -2,6 +2,7 @@ package kh.edu.rupp.ite.cambodiatourism.model.api;
 
 import java.util.List;
 
+import kh.edu.rupp.ite.cambodiatourism.Data.CampsData;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.CategoryDomain;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.DetailDomain;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.ExploreDomain;
@@ -12,7 +13,8 @@ import retrofit2.http.GET;
 
 public interface ApiService {
 
-    @GET("https://heanghenglong-ite.github.io/madapi/myapi.json")
+
+    @GET("")
     Call<List<PopularDomain>> loadPopularList();
 
     @GET("")
@@ -26,4 +28,7 @@ public interface ApiService {
 
     @GET("")
     Call<List<CategoryDomain>> loadCategoryList();
+
+    @GET("chhit.json")
+    Call<List<CampsData>> getCamps();
 }

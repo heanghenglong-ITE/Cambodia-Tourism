@@ -17,68 +17,64 @@ import java.util.List;
 import kh.edu.rupp.ite.cambodiatourism.Data.CategoryData;
 import kh.edu.rupp.ite.cambodiatourism.R;
 
-public class CategoryAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
     private Context context;
     private List<CategoryData> dataList;
 
-    public  void setSearchList(List<CategoryData> dataSearchList){
+    public void setSearchList(List<CategoryData> dataSearchList) {
         this.dataList = dataSearchList;
         notifyDataSetChanged();
     }
 
-    public CategoryAdapter(Context context, List<CategoryData> dataList){
+    public CategoryAdapter(Context context, List<CategoryData> dataList) {
         this.context = context;
         this.dataList = dataList;
-
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category, parent,false);
-
-        return new MyViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.viewholder_category, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        if (dataList != null && position < dataList.size()) {
-            CategoryData currentData = dataList.get(position);
-            if (currentData != null) {
-                holder.categoryImage.setImageResource(currentData.getDataImage());
-                holder.categoryTitle.setText(currentData.getDataTitle());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        CategoryData categoryData = dataList.get(position);
 
-                holder.categoryCard.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(context, currentData.getDestinationActivityClass());
-                        intent.putExtra("Image", currentData.getDataImage());
-                        intent.putExtra("Title", currentData.getDataTitle());
+        holder.categoryImage.setImageResource(categoryData.getDataImage());
+        holder.categoryTitle.setText(categoryData.getDataTitle());
 
-                        context.startActivity(intent);
-                    }
-                });
+        holder.categoryCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Handle item click, e.g., start a new activity or fragment
+                Intent intent = new Intent(context, categoryData.getDestinationActivityClass());
+                intent.putExtra("Image", categoryData.getDataImage());
+                intent.putExtra("Title", categoryData.getDataTitle());
+                context.startActivity(intent);
             }
-        }
+        });
     }
-
 
     @Override
     public int getItemCount() {
         return dataList.size();
     }
-}
-class MyViewHolder extends RecyclerView.ViewHolder{
 
-    ImageView categoryImage;
-    TextView categoryTitle;
-    CardView categoryCard;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView categoryImage;
+        TextView categoryTitle;
+        CardView categoryCard;
 
-    public MyViewHolder(@NonNull View itemView) {
-        super(itemView);
-        categoryImage = itemView.findViewById(R.id.categoryImage);
-        categoryTitle = itemView.findViewById(R.id.categoryTitle);
-        categoryCard = itemView.findViewById(R.id.categoryCard);
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            categoryImage = itemView.findViewById(R.id.categoryImage);
+            categoryTitle = itemView.findViewById(R.id.categoryTitle);
+            categoryCard = itemView.findViewById(R.id.categoryCard);
+        }
     }
 }
+

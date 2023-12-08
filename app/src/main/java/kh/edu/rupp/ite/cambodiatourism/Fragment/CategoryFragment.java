@@ -27,19 +27,19 @@ import kh.edu.rupp.ite.cambodiatourism.R;
 import kh.edu.rupp.ite.cambodiatourism.databinding.FragmentCategoryBinding;
 
 public class CategoryFragment extends Fragment {
-    RecyclerView recyclerView;
-    List<CategoryData> dataList;
-    CategoryAdapter adapter;
-    CategoryData categoryData;
-    SearchView searchView;
-    private Button attracktionsButton;
 
+    private RecyclerView recyclerView;
+    private List<CategoryData> dataList;
+    private CategoryAdapter adapter;
+    private SearchView searchView;
     private FragmentCategoryBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentCategoryBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+
         recyclerView = view.findViewById(R.id.recyclerView);
         searchView = view.findViewById(R.id.search);
 
@@ -56,37 +56,36 @@ public class CategoryFragment extends Fragment {
                 return true;
             }
         });
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(requireContext(),1);
+        dataList = generateItemList();
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(requireContext(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
-        dataList = new ArrayList<>();
+        adapter = new CategoryAdapter(requireContext(), dataList);
+        recyclerView.setAdapter(adapter);
 
+        return binding.getRoot();
+    }
+
+    private List<CategoryData> generateItemList() {
+        List<CategoryData> dataList = new ArrayList<>();
         dataList.add(new CategoryData("Beaches", R.drawable.cat1, Beaches.class));
         dataList.add(new CategoryData("Camps", R.drawable.cat2, Camps.class));
         dataList.add(new CategoryData("Forest", R.drawable.cat3, Forest.class));
         dataList.add(new CategoryData("Desert", R.drawable.cat4, Desert.class));
         dataList.add(new CategoryData("Mountain", R.drawable.cat5, Mountain.class));
-
-
-        adapter = new CategoryAdapter(requireContext(),dataList);
-        recyclerView.setAdapter(adapter);
-
-
-
-        return binding.getRoot();
+        return dataList;
     }
-    private void searchList(String text){
+
+    private void searchList(String text) {
         List<CategoryData> dataSearchList = new ArrayList<>();
-        for (CategoryData data : dataList){
-            if (data.getDataTitle().toLowerCase().contains(text.toLowerCase())){
+        for (CategoryData data : dataList) {
+            if (data.getDataTitle().toLowerCase().contains(text.toLowerCase())) {
                 dataSearchList.add(data);
             }
         }
-        if (dataSearchList.isEmpty()){
+        if (dataSearchList.isEmpty()) {
             Toast.makeText(requireContext(), "No matching results found", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             adapter.setSearchList(dataSearchList);
         }
     }
-
 }

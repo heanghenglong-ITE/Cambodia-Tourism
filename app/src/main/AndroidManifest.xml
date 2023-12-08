@@ -31,24 +31,6 @@
             android:name=".Activity.Beaches"
             android:exported="false" />
         <activity
-            android:name=".Activity.Hotel"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Food"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Hospital"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Sea"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Waterfall"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Wat"
-            android:exported="false" />
-        <activity
             android:name=".Activity.AboutActivity"
             android:exported="false" />
         <activity
