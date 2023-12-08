@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class PopularDomain implements java.io.Serializable {
 
     private int id;
-    @SerializedName("image-url")
+    @SerializedName("imageUrl")
     private String imageUrl;
     private String title;
     private String location;
