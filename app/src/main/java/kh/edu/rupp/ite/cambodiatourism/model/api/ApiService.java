@@ -12,7 +12,7 @@ import retrofit2.http.GET;
 
 public interface ApiService {
 
-    @GET("")
+    @GET("https://heanghenglong-ite.github.io/madapi/myapi.json")
     Call<List<PopularDomain>> loadPopularList();
 
     @GET("")

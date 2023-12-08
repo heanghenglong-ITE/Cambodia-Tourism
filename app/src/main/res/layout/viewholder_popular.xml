@@ -7,7 +7,7 @@
     android:layout_margin="8dp">
 
     <ImageView
-        android:id="@+id/p_picImg"
+        android:id="@+id/viewimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ombengnontemple"

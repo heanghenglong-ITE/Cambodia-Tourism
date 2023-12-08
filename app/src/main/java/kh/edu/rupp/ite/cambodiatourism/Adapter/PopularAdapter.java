@@ -8,68 +8,69 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
+import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import kh.edu.rupp.ite.cambodiatourism.databinding.ViewholderPopularBinding;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.PopularDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
 
-public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
-    ArrayList<PopularDomain> items;
-    DecimalFormat formatter;
+public class PopularAdapter extends ListAdapter<PopularDomain, PopularAdapter.PlaceViewHolder> {
 
-    public PopularAdapter(Context context,ArrayList<PopularDomain> items){
+    public PopularAdapter() {
 
-        this.items = items;
-        formatter = new DecimalFormat("###,###,###,###");
-    }
+        super(new DiffUtil.ItemCallback<PopularDomain>() {
+            @Override
+            public boolean areItemsTheSame(@NonNull PopularDomain oldItem, @NonNull PopularDomain newItem) {
+                return oldItem == newItem;
+            }
 
-    public PopularAdapter(ArrayList<PopularDomain> items) {
-        this.items = items;
+            @Override
+            public boolean areContentsTheSame(@NonNull PopularDomain oldItem, @NonNull PopularDomain newItem) {
+                return oldItem.getId() == newItem.getId();
+            }
+        });
     }
 
     @NonNull
     @Override
-    public PopularAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_popular,parent,false);
-        return new ViewHolder(view);
+    public PlaceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        ViewholderPopularBinding binding = ViewholderPopularBinding.inflate(layoutInflater, parent, false);
+        return new PlaceViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PopularAdapter.ViewHolder holder, int position) {
-        holder.titleTxt.setText(items.get(position).getTitle());
-        holder.locationTxt.setText(items.get(position).getLocation());
+    public void onBindViewHolder(@NonNull PlaceViewHolder holder, int position) {
 
-        int drawableResourceId = holder.itemView.getResources().getIdentifier(items.get(position).getPicImg()
-                ,"drawable",holder.itemView.getContext().getPackageName());
+        PopularDomain item = getItem(position);
+        holder.bind(item);
 
-        Glide.with(holder.itemView.getContext())
-                .load(drawableResourceId)
-                .transform(new CenterCrop(), new GranularRoundedCorners(40, 40,40,40))
-                .into(holder.pic);
     }
 
-    @Override
-    public int getItemCount() {
-        return items.size();
-    }
+    public static class PlaceViewHolder extends RecyclerView.ViewHolder{
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView titleTxt,locationTxt;
-        ImageView pic;
+        private final ViewholderPopularBinding itemBinding;
+        public PlaceViewHolder(ViewholderPopularBinding itemBinding){
+            super(itemBinding.getRoot());
+            this.itemBinding = itemBinding;
+        }
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            titleTxt = itemView.findViewById(R.id.titleTxt);
-            locationTxt = itemView.findViewById(R.id.pLocation);
-            pic = itemView.findViewById(R.id.p_picImg);
+        public void bind(PopularDomain popularDomain){
+            Picasso.get().load(popularDomain.getImageUrl()).into(itemBinding.viewimage);
+            itemBinding.titleTxt.setText(popularDomain.getTitle());
+            itemBinding.pLocation.setText(popularDomain.getLocation());
         }
     }
+
 }

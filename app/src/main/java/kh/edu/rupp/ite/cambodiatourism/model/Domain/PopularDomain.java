@@ -4,23 +4,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class PopularDomain implements java.io.Serializable {
 
-    @SerializedName("picimg-url")
-    private String picImg;
+    private int id;
+    @SerializedName("image-url")
+    private String imageUrl;
     private String title;
     private String location;
 
-    public PopularDomain(String picImg, String title, String location) {
-        this.picImg = picImg;
+    public PopularDomain(int id, String imageUrl, String title, String location) {
+        this.id = id;
+        this.imageUrl = imageUrl;
         this.title = title;
         this.location = location;
     }
 
-    public String getPicImg() {
-        return picImg;
+    public int getId() {
+        return id;
     }
 
-    public void setPicImg(String picImg) {
-        this.picImg = picImg;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getTitle() {
