@@ -1,23 +1,29 @@
 package kh.edu.rupp.ite.cambodiatourism.model.Domain;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class DetailDomain implements Serializable {
 
     private String title;
+    private String placeDescription;
     private String placeDetail;
     private String location;
     private String season;
     private String showLocation;
-    private String pic;
 
-    public DetailDomain(String title, String placeDetail, String location, String season, String showLocation, String pic) {
+    @SerializedName("image-url")
+    private String imageUrl;
+
+    public DetailDomain(String title, String placeDetail, String location, String season, String showLocation, String imageUrl, String placeDescription) {
         this.title = title;
         this.placeDetail = placeDetail;
         this.location = location;
         this.season = season;
         this.showLocation = showLocation;
-        this.pic = pic;
+        this.imageUrl = imageUrl;
+        this.placeDescription = placeDescription;
     }
 
     public String getTitle() {
@@ -60,11 +66,19 @@ public class DetailDomain implements Serializable {
         this.showLocation = showLocation;
     }
 
-    public String getPic() {
-        return pic;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getPlaceDescription() {
+        return placeDescription;
+    }
+
+    public void setPlaceDescription(String placeDescription) {
+        this.placeDescription = placeDescription;
     }
 }

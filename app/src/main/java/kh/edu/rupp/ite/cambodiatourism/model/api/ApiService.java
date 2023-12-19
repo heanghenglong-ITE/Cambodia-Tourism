@@ -24,11 +24,11 @@ public interface ApiService {
     Call<List<ExploreDomain>> loadExploreList();
 
     @GET("")
-    Call<List<DetailDomain>> loadDetailList();
-
-    @GET("")
     Call<List<CategoryDomain>> loadCategoryList();
 
     @GET("https://heanghenglong-ite.github.io/madapi/myapi.json")
     Call<List<CampsData>> getCamps();
+
+    @GET("https://heanghenglong-ite.github.io/madapi/myapi.json")
+    Call<DetailDomain> getPlaceDetails(int placeId);
 }

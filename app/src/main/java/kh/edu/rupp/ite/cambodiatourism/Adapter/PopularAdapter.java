@@ -1,6 +1,7 @@
 package kh.edu.rupp.ite.cambodiatourism.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +21,13 @@ import com.squareup.picasso.Picasso;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import kh.edu.rupp.ite.cambodiatourism.Activity.PlaceDetailsActivity;
 import kh.edu.rupp.ite.cambodiatourism.databinding.ViewholderPopularBinding;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.PopularDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
 
 public class PopularAdapter extends ListAdapter<PopularDomain, PopularAdapter.PlaceViewHolder> {
+
 
     public PopularAdapter() {
 
@@ -40,6 +43,8 @@ public class PopularAdapter extends ListAdapter<PopularDomain, PopularAdapter.Pl
             }
         });
     }
+
+
 
     @NonNull
     @Override
@@ -61,14 +66,28 @@ public class PopularAdapter extends ListAdapter<PopularDomain, PopularAdapter.Pl
     public static class PlaceViewHolder extends RecyclerView.ViewHolder{
 
         private final ViewholderPopularBinding itemBinding;
+        private final Context context;
         public PlaceViewHolder(ViewholderPopularBinding itemBinding){
             super(itemBinding.getRoot());
             this.itemBinding = itemBinding;
+            this.context = itemBinding.getRoot().getContext();
         }
 
         public void bind(PopularDomain popularDomain){
             Picasso.get().load(popularDomain.getImageUrl()).into(itemBinding.viewimage);
             itemBinding.titleTxt.setText(popularDomain.getTitle());
+
+            // Set click listener on item view
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Start the PlaceDetailActivity and pass the place id
+                    Intent intent = new Intent(context, PlaceDetailsActivity.class);
+
+                    intent.putExtra("placeId", popularDomain.getId());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
