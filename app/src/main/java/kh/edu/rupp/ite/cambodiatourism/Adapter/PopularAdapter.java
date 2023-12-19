@@ -69,7 +69,6 @@ public class PopularAdapter extends ListAdapter<PopularDomain, PopularAdapter.Pl
         public void bind(PopularDomain popularDomain){
             Picasso.get().load(popularDomain.getImageUrl()).into(itemBinding.viewimage);
             itemBinding.titleTxt.setText(popularDomain.getTitle());
-            itemBinding.pLocation.setText(popularDomain.getLocation());
         }
     }
 
