@@ -1,33 +1,32 @@
 package kh.edu.rupp.ite.cambodiatourism.Data;
 
 public class CampsData {
-    private String dataTitle;
-    private String dataProvince;
-    private int dataImage;
-    private Class<?> destinationActivityClass; // Added field for destination activity class
+    private int id;
+    private String imageUrl;
+    private String title;
+    private String location;
 
-    public String getDataTitle() {
-        return dataTitle;
+    public CampsData(int id, String imageUrl, String title, String location) {
+        this.id = id;
+        this.imageUrl = imageUrl;
+        this.title = title;
+        this.location = location;
     }
 
-    public String getDataName() {
-        return dataProvince;
+    public int getId() {
+        return id;
     }
 
-    public int getDataImage() {
-        return dataImage;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public Class<?> getDestinationActivityClass() {
-        return destinationActivityClass; // Getter for destination activity class
+    public String getTitle() {
+        return title;
     }
 
-    public CampsData(String dataTitle,String dataProvince, int dataImage, Class<?> destinationActivityClass) {
-        this.dataTitle = dataTitle;
-        this.dataProvince = dataProvince;
-        this.dataImage = dataImage;
-        this.destinationActivityClass = destinationActivityClass;
+    public String getLocation() {
+        return location;
     }
-
-
 }
+

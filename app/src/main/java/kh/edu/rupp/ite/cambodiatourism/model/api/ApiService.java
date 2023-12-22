@@ -10,6 +10,7 @@ import kh.edu.rupp.ite.cambodiatourism.model.Domain.MoreDomain;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.PopularDomain;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -26,7 +27,7 @@ public interface ApiService {
     @GET("")
     Call<List<CategoryDomain>> loadCategoryList();
 
-    @GET("https://heanghenglong-ite.github.io/madapi/myapi.json")
+    @GET("https://tochhit.github.io/host_api/chhit.json")
     Call<List<CampsData>> getCamps();
 
     @GET("https://heanghenglong-ite.github.io/madapi/myapi.json")

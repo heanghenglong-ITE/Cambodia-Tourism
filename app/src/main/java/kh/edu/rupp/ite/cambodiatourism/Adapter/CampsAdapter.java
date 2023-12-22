@@ -11,23 +11,21 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import kh.edu.rupp.ite.cambodiatourism.Data.CampsData;
 import kh.edu.rupp.ite.cambodiatourism.R;
-
+import java.util.ArrayList;
 public class CampsAdapter extends RecyclerView.Adapter<CampsAdapter.ViewHolder> {
-    private Context context;
-    private List<CampsData> dataList;
 
-    public void setSearchList(List<CampsData> dataSearchList) {
-        this.dataList = dataSearchList;
+    private List<CampsData> data = new ArrayList<>();
+
+    public void setData(List<CampsData> newData) {
+        data.clear();
+        data.addAll(newData);
         notifyDataSetChanged();
-    }
-
-    public CampsAdapter(List<CampsData> dataList) {
-        this.context = context;
-        this.dataList = dataList;
     }
 
     @NonNull
@@ -40,39 +38,31 @@ public class CampsAdapter extends RecyclerView.Adapter<CampsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CampsData campsData = dataList.get(position);
+        CampsData item = data.get(position);
 
-        // Bind data to views
-        holder.campsImage.setImageResource(campsData.getDataImage());
-        holder.campsProvince.setText(campsData.getDataName());
-        holder.campsTitle.setText(campsData.getDataTitle());
+        holder.titleTextView.setText(item.getTitle());
+        holder.locationTextView.setText(item.getLocation());
 
-        // Add an OnClickListener if needed
-        holder.campseCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Handle item click if needed
-            }
-        });
+        // Load image using Picasso
+        Picasso.get().load(item.getImageUrl()).into(holder.imageView);
     }
 
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return data.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView campsImage;
-        TextView campsProvince;
-        TextView campsTitle;
-        CardView campseCard;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        TextView titleTextView;
+        TextView locationTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            campsImage = itemView.findViewById(R.id.campsImage);
-            campsProvince = itemView.findViewById(R.id.campsProvince);
-            campsTitle = itemView.findViewById(R.id.campsTitle);
-            campseCard = itemView.findViewById(R.id.campseCard);
+            imageView = itemView.findViewById(R.id.imageView);
+            titleTextView = itemView.findViewById(R.id.titleTextView);
+            locationTextView = itemView.findViewById(R.id.locationTextView);
         }
     }
 }
+
