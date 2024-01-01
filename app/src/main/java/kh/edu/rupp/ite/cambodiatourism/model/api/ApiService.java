@@ -21,7 +21,7 @@ public interface ApiService {
     @GET("")
     Call<List<MoreDomain>> loadMoreList();
 
-    @GET("")
+    @GET("https://github.com/Chandolakao/explorer_api")
     Call<List<ExploreDomain>> loadExploreList();
 
     @GET("")
