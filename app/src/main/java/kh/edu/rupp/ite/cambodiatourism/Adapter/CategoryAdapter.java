@@ -39,7 +39,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         CategoryDomain categoryDomain = categoryDomains.get(position);
         holder.textName.setText(categoryDomain.getName());
         holder.textLocation.setText(categoryDomain.getLocation());
-        holder.textDescription.setText(categoryDomain.getDescription());
+        //holder.textDescription.setText(categoryDomain.getDescription());
 
         // Load image using Picasso (add Picasso library to your dependencies)
         Picasso.get().load(categoryDomain.getImageUrl()).into(holder.imageView);
@@ -66,7 +66,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             imageView = itemView.findViewById(R.id.imageView);
             textName = itemView.findViewById(R.id.textName);
             textLocation = itemView.findViewById(R.id.textLocation);
-            textDescription = itemView.findViewById(R.id.textDescription);
+            //textDescription = itemView.findViewById(R.id.textDescription);
         }
     }
 

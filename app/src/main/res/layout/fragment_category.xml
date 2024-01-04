@@ -1,52 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- res/layout/fragment_category.xml -->
-
-<!-- res/layout/fragment_category.xml -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.CategoryFragment">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Category"
+        android:textSize="20dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:id="@+id/textcatagory"/>
 
-    <LinearLayout
+    <HorizontalScrollView
+        android:id="@+id/horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/linear1">
+        android:layout_below="@id/textcatagory"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp">
 
-        <Button
-            android:id="@+id/btnForest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="5dp"
-            android:text="Forest" />
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/textcatagory"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnSea"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btnForest"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="5dp"
-            android:text="Sea" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnForest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:text="Forest" />
+
+            <Button
+                android:id="@+id/btnSea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnForest"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:text="Sea" />
+
+            <Button
+                android:id="@+id/btnSea2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnForest"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:text="Sea" />
+
+            <Button
+                android:id="@+id/btnSea3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnForest"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:text="Sea" />
+
+            <Button
+                android:id="@+id/btnSea4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnForest"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:text="Sea" />
+
+            <Button
+                android:id="@+id/btnSea5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnForest"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:text="Sea" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/searchView"
-        android:layout_below="@id/linear1"
-        android:layout_marginTop="8dp"/>
+        android:layout_width="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/horizontal"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/seach_background2"
+        android:drawableLeft="@drawable/search_icon" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:layout_below="@id/searchView"
-        android:layout_marginTop="8dp" />
-
+        android:layout_marginTop="2dp" />
 </RelativeLayout>
 

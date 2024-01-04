@@ -37,7 +37,7 @@
         android:layout_height="540dp"
         android:layout_marginTop="120dp"
         android:paddingLeft="15dp"
-        tools:listitem="@layout/viewholder_explore"/>
+        tools:listitem="@layout/viewholder_explore" />
 
     <ProgressBar
         android:id="@+id/progressBar"
