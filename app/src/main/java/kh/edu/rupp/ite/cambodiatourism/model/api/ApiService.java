@@ -1,8 +1,8 @@
 package kh.edu.rupp.ite.cambodiatourism.model.api;
 
 import java.util.List;
+import java.util.Map;
 
-import kh.edu.rupp.ite.cambodiatourism.Data.CampsData;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.CategoryDomain;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.DetailDomain;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.ExploreDomain;
@@ -10,7 +10,6 @@ import kh.edu.rupp.ite.cambodiatourism.model.Domain.MoreDomain;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.PopularDomain;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -27,8 +26,8 @@ public interface ApiService {
     @GET("")
     Call<List<CategoryDomain>> loadCategoryList();
 
-    @GET("https://tochhit.github.io/host_api/chhit.json")
-    Call<List<CampsData>> getCamps();
+    @GET("host_api/README.json")
+    Call<List<CategoryDomain>> getTourismSpots();
 
     @GET("https://heanghenglong-ite.github.io/madapi/myapi.json")
     Call<DetailDomain> getPlaceDetails(int placeId);
