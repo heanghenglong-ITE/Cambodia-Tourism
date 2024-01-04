@@ -6,17 +6,20 @@ import java.io.Serializable;
 
 public class DetailDomain implements Serializable {
 
+    private int id;
     private String title;
+    @SerializedName("image-url")
+    private String imageUrl;
     private String placeDescription;
     private String placeDetail;
     private String location;
     private String season;
     private String showLocation;
 
-    @SerializedName("image-url")
-    private String imageUrl;
 
-    public DetailDomain(String title, String placeDetail, String location, String season, String showLocation, String imageUrl, String placeDescription) {
+
+    public DetailDomain(int id,String title, String placeDetail, String location, String season, String showLocation, String imageUrl, String placeDescription) {
+        this.id = id;
         this.title = title;
         this.placeDetail = placeDetail;
         this.location = location;
@@ -24,6 +27,14 @@ public class DetailDomain implements Serializable {
         this.showLocation = showLocation;
         this.imageUrl = imageUrl;
         this.placeDescription = placeDescription;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {

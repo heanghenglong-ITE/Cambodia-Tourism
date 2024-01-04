@@ -36,14 +36,23 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
+    private RecyclerView.Adapter adapterMore;
+
+    private RecyclerView recyclerViewMore;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+
+        intiRecyclerView(view);
+
         return view;
 
+
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -99,6 +108,18 @@ public class HomeFragment extends Fragment {
         PopularAdapter adapter = new PopularAdapter();
         adapter.submitList(placeList);
         binding.recyclerView.setAdapter(adapter);
+    }
+    private void intiRecyclerView(View view){
+        ArrayList<MoreDomain> moreList = new ArrayList<>();
+        moreList.add(new MoreDomain("Beach","cat1"));
+        moreList.add(new MoreDomain("Camps","cat2"));
+        moreList.add(new MoreDomain("Forest","cat3"));
+        moreList.add(new MoreDomain("Desert","cat4"));
+        moreList.add(new MoreDomain("Mountain","cat5"));
 
+        recyclerViewMore = view.findViewById(R.id.recyclerView_more);
+        recyclerViewMore.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        adapterMore = new MoreAdapter(moreList);
+        recyclerViewMore.setAdapter(adapterMore);
     }
 }

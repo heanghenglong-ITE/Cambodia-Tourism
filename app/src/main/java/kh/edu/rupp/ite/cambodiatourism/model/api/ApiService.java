@@ -29,6 +29,6 @@ public interface ApiService {
     @GET("https://heanghenglong-ite.github.io/madapi/myapi.json")
     Call<List<CampsData>> getCamps();
 
-    @GET("https://heanghenglong-ite.github.io/madapi/myapi.json")
+    @GET("https://heanghenglong-ite.github.io/detailapi/myapi.json")
     Call<DetailDomain> getPlaceDetails(int placeId);
 }

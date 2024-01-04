@@ -20,14 +20,15 @@ import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import kh.edu.rupp.ite.cambodiatourism.Activity.PlaceDetailsActivity;
 import kh.edu.rupp.ite.cambodiatourism.databinding.ViewholderPopularBinding;
+import kh.edu.rupp.ite.cambodiatourism.model.Domain.CategoryDomain;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.PopularDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
 
 public class PopularAdapter extends ListAdapter<PopularDomain, PopularAdapter.PlaceViewHolder> {
-
 
     public PopularAdapter() {
 
