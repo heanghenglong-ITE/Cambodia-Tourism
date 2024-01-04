@@ -1,91 +1,160 @@
 package kh.edu.rupp.ite.cambodiatourism.Fragment;
-
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.widget.SearchView;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import kh.edu.rupp.ite.cambodiatourism.Activity.Beaches;
-import kh.edu.rupp.ite.cambodiatourism.Activity.Camps;
-import kh.edu.rupp.ite.cambodiatourism.Activity.Desert;
-import kh.edu.rupp.ite.cambodiatourism.Activity.Forest;
-import kh.edu.rupp.ite.cambodiatourism.Activity.Mountain;
+import java.util.ArrayList;
+
+import kh.edu.rupp.ite.cambodiatourism.Activity.DetailActivity;
 import kh.edu.rupp.ite.cambodiatourism.Adapter.CategoryAdapter;
-import kh.edu.rupp.ite.cambodiatourism.Data.CategoryData;
 import kh.edu.rupp.ite.cambodiatourism.R;
-import kh.edu.rupp.ite.cambodiatourism.databinding.FragmentCategoryBinding;
+import kh.edu.rupp.ite.cambodiatourism.model.Domain.CategoryDomain;
+import kh.edu.rupp.ite.cambodiatourism.model.api.ApiService;
+
+import androidx.annotation.NonNull;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import android.util.Log;
+import android.widget.Button;
 
 public class CategoryFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private List<CategoryData> dataList;
     private CategoryAdapter adapter;
-    private SearchView searchView;
-    private FragmentCategoryBinding binding;
+    private List<CategoryDomain> originalCategoryDomains;  // To store the original data
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = FragmentCategoryBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_category, container, false);
 
-        recyclerView = view.findViewById(R.id.recyclerView);
-        searchView = view.findViewById(R.id.search);
+        recyclerView = rootView.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new CategoryAdapter(getActivity(), new ArrayList<>());
+        recyclerView.setAdapter(adapter);
 
-        searchView.clearFocus();
+        SearchView searchView = rootView.findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                // Handle the submission if needed
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchList(newText);
+                // Filter the list when the query text changes
+                filterCategoryList(newText);
                 return true;
             }
         });
-        dataList = generateItemList();
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(requireContext(), 1);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        adapter = new CategoryAdapter(requireContext(), dataList);
-        recyclerView.setAdapter(adapter);
 
-        return binding.getRoot();
+        Button btnForest = rootView.findViewById(R.id.btnForest);
+        Button btnSea = rootView.findViewById(R.id.btnSea);
+
+        // Set click listeners for the buttons
+        btnForest.setOnClickListener(view -> makeApiRequest("forest"));
+        btnSea.setOnClickListener(view -> makeApiRequest("sea"));
+        adapter.setOnItemClickListener(categoryDomain -> {
+            // Open the detail view when an item is clicked
+            openDetailView(categoryDomain);
+        });
+
+        // Default to showing all categories
+        makeApiRequest("all");
+
+        return rootView;
     }
 
-    private List<CategoryData> generateItemList() {
-        List<CategoryData> dataList = new ArrayList<>();
-        dataList.add(new CategoryData("Beaches", R.drawable.cat1, Beaches.class));
-        dataList.add(new CategoryData("Camps", R.drawable.cat2, Camps.class));
-        dataList.add(new CategoryData("Forest", R.drawable.cat3, Forest.class));
-        dataList.add(new CategoryData("Desert", R.drawable.cat4, Desert.class));
-        dataList.add(new CategoryData("Mountain", R.drawable.cat5, Mountain.class));
-        return dataList;
+    private void openDetailView(CategoryDomain categoryDomain) {
+        Intent intent = new Intent(getActivity(), DetailActivity.class);
+        intent.putExtra("itemId", categoryDomain.getId());
+        intent.putExtra("itemName", categoryDomain.getName());
+        intent.putExtra("itemLocation", categoryDomain.getLocation());
+        intent.putExtra("itemDescription", categoryDomain.getDescription());
+        intent.putExtra("imageUrl", categoryDomain.getImageUrl());
+        startActivity(intent);
     }
 
-    private void searchList(String text) {
-        List<CategoryData> dataSearchList = new ArrayList<>();
-        for (CategoryData data : dataList) {
-            if (data.getDataTitle().toLowerCase().contains(text.toLowerCase())) {
-                dataSearchList.add(data);
+    private void makeApiRequest(String category) {
+
+        Retrofit httpClient = new Retrofit.Builder()
+                .baseUrl("https://tochhit.github.io/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // Create Service object
+        ApiService apiService = httpClient.create(ApiService.class);
+
+        Call<List<CategoryDomain>> call = apiService.getTourismSpots();
+
+        call.enqueue(new Callback<List<CategoryDomain>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<CategoryDomain>> call, @NonNull Response<List<CategoryDomain>> response) {
+                if (response.isSuccessful()) {
+                    List<CategoryDomain> categoryDomains = response.body();
+                    if (categoryDomains != null && !categoryDomains.isEmpty()) {
+                        originalCategoryDomains = new ArrayList<>(categoryDomains);  // Save the original data
+                        if ("all".equals(category)) {
+                            adapter.setData(categoryDomains);
+                        } else {
+                            // Filter by category
+                            List<CategoryDomain> filteredList = filterByCategory(categoryDomains, category);
+                            adapter.setData(filteredList);
+                        }
+                    } else {
+                        Log.e("APIResponse", "Empty or null response body");
+                        Toast.makeText(getActivity(), "Error: Empty response", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Log.e("APIResponse", "Error: " + response.message());
+                    Toast.makeText(getActivity(), "Error: " + response.message(), Toast.LENGTH_SHORT).show();
+                }
             }
-        }
-        if (dataSearchList.isEmpty()) {
-            Toast.makeText(requireContext(), "No matching results found", Toast.LENGTH_SHORT).show();
-        } else {
-            adapter.setSearchList(dataSearchList);
+
+            @Override
+            public void onFailure(@NonNull Call<List<CategoryDomain>> call, @NonNull Throwable t) {
+                Log.e("APIResponse", "Network error: " + t.getMessage());
+                Toast.makeText(getActivity(), "Network error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void filterCategoryList(String query) {
+        if (originalCategoryDomains != null) {
+            // If the original data is available, filter it based on the entered text
+            List<CategoryDomain> filteredList = new ArrayList<>();
+            for (CategoryDomain item : originalCategoryDomains) {
+                if (item.getName().toLowerCase().contains(query.toLowerCase())) {
+                    filteredList.add(item);
+                }
+            }
+            adapter.setData(filteredList);
         }
     }
+    
+    private List<CategoryDomain> filterByCategory(List<CategoryDomain> categoryDomains, String category) {
+        // Filter the list based on the selected category
+        // You can implement your own logic here
+        // For simplicity, this example filters by matching the category name
+        return categoryDomains.stream()
+                .filter(item -> category.equalsIgnoreCase(item.getCategory()))
+                .collect(Collectors.toList());
+    }
+    
 }
+
