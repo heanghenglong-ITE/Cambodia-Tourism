@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.ExploreFragment">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:padding="10dp"
-        android:text="@string/explore_now"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/black" />
-
-    <EditText
-        android:id="@+id/search"
+    <LinearLayout
+        android:id="@+id/linear1"
         android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/b_blue"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textViewD"
+            android:text="Explore New"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/rounded_editing"
-        android:drawableLeft="@drawable/search_icon"
-        android:drawablePadding="10dp"
-        android:hint="@string/search"
-        android:inputType="text"
-        android:padding="10dp"
-        android:singleLine="true"
-        android:autofillHints="" />
-
-
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:iconifiedByDefault="false"
+        app:searchHintIcon="@null"
+        app:queryHint="Search..."
+        android:focusable="false"
+        app:closeIcon="@drawable/baseline_clear_24"
+        app:searchIcon="@drawable/search_icon"
+        android:background="@drawable/seach_background2"
+        app:layout_constraintTop_toBottomOf="@id/linear1"
+        />
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/view_explore"
         android:layout_width="match_parent"
-        android:layout_height="540dp"
-        android:layout_marginTop="120dp"
-        android:paddingLeft="15dp"
-        tools:listitem="@layout/viewholder_explore" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:visibility="invisible" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="90dp" />
+        android:id="@+id/recyclerViewExplor"
+        app:layout_constraintTop_toBottomOf="@id/searchView"/>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
