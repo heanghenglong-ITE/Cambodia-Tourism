@@ -11,4 +11,7 @@
     <color name="purple">#A569BD</color>
     <color name="white2">#EBEDEF</color>
     <color name="yellow">#DFFF00</color>
+
+    <color name="fe_rupp">#014164</color>
+    <color name="colorAccent">#FF402D</color>
 </resources>
