@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-        makeApiRequest("rate");
+        makeApiRequest("all");
 
 
         intiRecyclerView(rootView);
@@ -99,7 +99,7 @@ public class HomeFragment extends Fragment {
         // Create Service object
         ApiService apiService = httpClient.create(ApiService.class);
 
-        Call<List<CategoryDomain>> call = apiService.getTourismSpots();
+        Call<List<CategoryDomain>> call = apiService.getTourism();
 
         call.enqueue(new Callback<List<CategoryDomain>>() {
             @Override
