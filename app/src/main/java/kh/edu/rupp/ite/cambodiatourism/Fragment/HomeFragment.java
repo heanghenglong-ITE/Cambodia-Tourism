@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-        makeApiRequest("all");
+        makeApiRequest("rate");
 
 
         intiRecyclerView(rootView);

@@ -83,7 +83,7 @@ public class CategoryFragment extends Fragment {
         });
 
         // Default to showing all categories
-        makeApiRequest("rate");
+        makeApiRequest("all");
 
         return rootView;
     }
