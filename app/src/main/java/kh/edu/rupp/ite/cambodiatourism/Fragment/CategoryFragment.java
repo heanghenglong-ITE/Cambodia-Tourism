@@ -68,13 +68,15 @@ public class CategoryFragment extends Fragment {
         Button btnForest = rootView.findViewById(R.id.btnForest);
         Button btnDesert = rootView.findViewById(R.id.btnDesert);
         Button btnMountain = rootView.findViewById(R.id.btnMontain);
+        Button btnTample = rootView.findViewById(R.id.btnTample);
 
         // Set click listeners for the buttons
-        btnBeach.setOnClickListener(view -> makeApiRequest("forest"));
-        btnCamps.setOnClickListener(view -> makeApiRequest("sea"));
-        btnForest.setOnClickListener(view -> makeApiRequest("sea"));
-        btnDesert.setOnClickListener(view -> makeApiRequest("sea"));
-        btnMountain.setOnClickListener(view -> makeApiRequest("sea"));
+        btnBeach.setOnClickListener(view -> makeApiRequest("beach"));
+        btnCamps.setOnClickListener(view -> makeApiRequest("camps"));
+        btnForest.setOnClickListener(view -> makeApiRequest("forest"));
+        btnDesert.setOnClickListener(view -> makeApiRequest("desert"));
+        btnMountain.setOnClickListener(view -> makeApiRequest("mountain"));
+        btnTample.setOnClickListener(view -> makeApiRequest("tample"));
         adapter.setOnItemClickListener(categoryDomain -> {
             // Open the detail view when an item is clicked
             openDetailView(categoryDomain);
@@ -93,6 +95,13 @@ public class CategoryFragment extends Fragment {
         intent.putExtra("itemLocation", categoryDomain.getLocation());
         intent.putExtra("itemDescription", categoryDomain.getDescription());
         intent.putExtra("imageUrl", categoryDomain.getImageUrl());
+        intent.putExtra("itemMap", categoryDomain.getMap());
+        intent.putExtra("itemarea", categoryDomain.getArea());
+        intent.putExtra("itemseason", categoryDomain.getSeason());
+        intent.putExtra("itemroad", categoryDomain.getRoad());
+        intent.putExtra("itemfacity", categoryDomain.getFacity());
+        intent.putExtra("itemfabuilding", categoryDomain.getFabuilding());
+        intent.putExtra("itemlink", categoryDomain.getLink());
         startActivity(intent);
     }
 
