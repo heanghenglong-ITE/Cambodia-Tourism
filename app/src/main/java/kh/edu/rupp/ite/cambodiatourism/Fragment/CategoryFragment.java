@@ -68,6 +68,7 @@ public class CategoryFragment extends Fragment {
         Button btnForest = rootView.findViewById(R.id.btnForest);
         Button btnDesert = rootView.findViewById(R.id.btnDesert);
         Button btnMountain = rootView.findViewById(R.id.btnMontain);
+        Button btnTample = rootView.findViewById(R.id.btnTample);
 
         // Set click listeners for the buttons
         btnBeach.setOnClickListener(view -> makeApiRequest("beach"));
@@ -75,6 +76,7 @@ public class CategoryFragment extends Fragment {
         btnForest.setOnClickListener(view -> makeApiRequest("forest"));
         btnDesert.setOnClickListener(view -> makeApiRequest("desert"));
         btnMountain.setOnClickListener(view -> makeApiRequest("mountain"));
+        btnTample.setOnClickListener(view -> makeApiRequest("tample"));
         adapter.setOnItemClickListener(categoryDomain -> {
             // Open the detail view when an item is clicked
             openDetailView(categoryDomain);

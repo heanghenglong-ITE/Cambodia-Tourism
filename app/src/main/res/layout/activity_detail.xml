@@ -37,7 +37,8 @@
             android:layout_width="match_parent"
             android:layout_marginTop="7dp"
             android:layout_height="200dp"
-            android:scaleType="centerCrop" />
+            android:background="@drawable/ic_launcher_foreground"
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/detailNameTextView"
@@ -66,14 +67,22 @@
             android:textColor="@color/black"
             android:layout_toEndOf="@+id/imageview2"
             android:textSize="16sp" />
+        <TextView
+            android:id="@+id/text3"
+            android:text="ការពិពណ៌នា:"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/setting_red"
+            android:textStyle="bold"
+            android:layout_below="@id/imageview2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/detailDescriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/detailLocationTextView"
+            android:layout_below="@id/text3"
             android:textSize="18sp"
-            android:layout_marginTop="8dp"
             android:maxLines="3"
             android:ellipsize="end"
             android:text="Your initial text here"/>

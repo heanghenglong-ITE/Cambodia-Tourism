@@ -53,7 +53,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="45dp"
                     android:text="Beach"
                     android:textColor="@color/black"
@@ -87,7 +87,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="45dp"
                     android:text="Camps"
                     android:textColor="@color/black"
@@ -121,7 +121,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="13dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="46dp"
                     android:text="Forest"
                     android:textColor="@color/black"
@@ -155,7 +155,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="45dp"
                     android:text="Desert"
                     android:textColor="@color/black"
@@ -189,7 +189,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="45dp"
                     android:text="Mountain"
                     android:textColor="@color/black"
@@ -197,6 +197,40 @@
 
                 <Button
                     android:id="@+id/btnMontain"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#00000000" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/R6"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="15dp">
+
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="2.5dp"
+                    android:background="@drawable/temple" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:text="Tample"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btnTample"
                     android:layout_width="65dp"
                     android:layout_height="65dp"
                     android:layout_alignParentTop="true"
@@ -217,19 +251,24 @@
         android:id="@+id/Relesearch"
         android:background="@color/white2"
         android:layout_height="75dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textsearch"
+            android:layout_centerHorizontal="true"
+
+            android:text="Search"/>
         <SearchView
             android:id="@+id/searchView"
             android:layout_width="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
+            android:layout_below="@id/textsearch"
             android:background="@drawable/seach_background2"
             android:drawableLeft="@drawable/search_icon" />
 
     </RelativeLayout>
-
-
 
     <TextView
         android:layout_width="wrap_content"
