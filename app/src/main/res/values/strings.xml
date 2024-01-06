@@ -28,6 +28,11 @@
     <string name="already_have_account">Already Have Account? Login</string>
     <string name="or_login_with">or login with</string>
 
+    <string name="notifications">Application  Notifications</string>
+    <string name="welcome">Welcome to Our Tourism</string>
+    <string name="login_info">Change Information</string>
+    <string name="name">Your Username</string>
+
 
     // Place Detail
     <string name="p1">ប្រាសាទអំបែងនំ ស្ថិតក្នុងទីតាំងសម្បូណ៌ដោយប្រាសាទបុរាណជាច្រើនកន្លែងគ្រាន់តែប្រាសាទភាគច្រើនបានបែកបាក់អស់។ អ្នកស្រុកប្រាប់ថាឈ្មោះនេះមាននិទានដូចរឿង សេដ្ឋីខ្វះអំបែង គឺរឿងព្រេង «ដឹងសងដឹង អំបែងសងអំបែង» ដែរ។ ចំណែកអ្នកភូមិខ្លះរស់នៅក្បែរៗប្រាសាទរៀបរាប់ថា “កាលពីមុនមកគេនៅប្រាសាទនេះ គេអាចមកខ្ចីឆ្នាំងចានយកទៅធ្វើបុណ្យបាន។ លុះក្រោយមកដោយសារអ្នកខ្ចី មានចិត្តមិនស្មោះទើបនៅសល់តែអំបែងចាននិងឆ្នាំង ទើបប្រាសាទនេះមានឈ្មោះថា ប្រាសាទអំបែង។</string>

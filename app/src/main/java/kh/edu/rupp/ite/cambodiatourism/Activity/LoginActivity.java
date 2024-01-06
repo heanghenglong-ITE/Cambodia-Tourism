@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toast;
 
 import kh.edu.rupp.ite.cambodiatourism.R;
@@ -21,7 +22,8 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.buttonLogin.setOnClickListener(v -> navigateToMain());
-        ;
+
+
     }
 
     private void navigateToMain() {

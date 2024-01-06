@@ -21,24 +21,8 @@
 <!--        <activity-->
 <!--            android:name=".Activity.LoginActivity"-->
 <!--            android:exported="false" />-->
-        <activity
-            android:name=".Activity.DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Mountain"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Desert"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Forest"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Camps"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.Beaches"
-            android:exported="false" />
+
+
         <activity
             android:name=".Activity.AboutActivity"
             android:exported="false" />
@@ -59,6 +43,9 @@
         <activity
             android:name=".Activity.MainActivity"
             android:theme="@style/Theme.CambodiaTourism" />
+        <activity
+            android:name=".Activity.DetailActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

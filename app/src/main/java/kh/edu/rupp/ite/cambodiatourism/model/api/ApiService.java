@@ -30,5 +30,5 @@ public interface ApiService {
     Call<List<CategoryDomain>> getTourismSpots();
 
     @GET("https://heanghenglong-ite.github.io/detailapi/myapi.json")
-    Call<DetailDomain> getPlaceDetails(int placeId);
+    Call<DetailDomain> getPlaceDetails(String placeId);
 }

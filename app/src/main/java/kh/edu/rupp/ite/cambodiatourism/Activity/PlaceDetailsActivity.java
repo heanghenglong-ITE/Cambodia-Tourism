@@ -26,7 +26,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PlaceDetailsActivity extends AppCompatActivity {
 
-    private static final String BASE_URL = "https://heanghenglong-ite.github.io/madapi/";
 
     private TextView placeName;
     private TextView placeDescription;
@@ -42,7 +41,7 @@ public class PlaceDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_place_details);
 
         Intent intent = getIntent();
-        int placeId = intent.getIntExtra("placeId",-1);
+        String placeId = getIntent().getStringExtra("placeId");
 
         placeName = findViewById(R.id.title);
         placeDescription = findViewById(R.id.description);
@@ -64,10 +63,10 @@ public class PlaceDetailsActivity extends AppCompatActivity {
 
     }
 
-    private void getPlaceDetails(int placeId) {
+    private void getPlaceDetails(String placeId) {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl("https://heanghenglong-ite.github.io/detailapi/myapi.json")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

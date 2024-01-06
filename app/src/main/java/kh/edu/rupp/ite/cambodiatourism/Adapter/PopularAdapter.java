@@ -22,6 +22,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import kh.edu.rupp.ite.cambodiatourism.Activity.DetailActivity;
 import kh.edu.rupp.ite.cambodiatourism.Activity.PlaceDetailsActivity;
 import kh.edu.rupp.ite.cambodiatourism.databinding.ViewholderPopularBinding;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.CategoryDomain;
@@ -59,8 +60,16 @@ public class PopularAdapter extends ListAdapter<PopularDomain, PopularAdapter.Pl
     @Override
     public void onBindViewHolder(@NonNull PlaceViewHolder holder, int position) {
 
-        PopularDomain item = getItem(position);
+        final PopularDomain item = getItem(position);
         holder.bind(item);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), DetailActivity.class);
+                intent.putExtra("PlaceId", item.getId());
+                v.getContext().startActivity(intent);
+            }
+        });
 
     }
 
