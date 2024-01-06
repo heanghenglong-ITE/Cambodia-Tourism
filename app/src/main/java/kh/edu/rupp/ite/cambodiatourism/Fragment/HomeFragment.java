@@ -1,5 +1,6 @@
 package kh.edu.rupp.ite.cambodiatourism.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,9 +19,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import kh.edu.rupp.ite.cambodiatourism.Activity.DetailActivity;
+import kh.edu.rupp.ite.cambodiatourism.Adapter.CategoryAdapter;
 import kh.edu.rupp.ite.cambodiatourism.Adapter.MoreAdapter;
 import kh.edu.rupp.ite.cambodiatourism.Adapter.PopularAdapter;
+import kh.edu.rupp.ite.cambodiatourism.model.Domain.CategoryDomain;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.MoreDomain;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.PopularDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
@@ -35,80 +40,109 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-
     private RecyclerView.Adapter adapterMore;
-
     private RecyclerView recyclerViewMore;
+    private RecyclerView recyclerView;
+    private PopularAdapter adapter;
+    private List<CategoryDomain> originalCategoryDomains;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        intiRecyclerView(view);
+        recyclerView = rootView.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        adapter = new PopularAdapter(getActivity(), new ArrayList<>());
+        recyclerView.setAdapter(adapter);
 
-        return view;
+        adapter.setOnItemClickListener(categoryDomain -> {
+            // Open the detail view when an item is clicked
+            openDetailView(categoryDomain);
+        });
+
+
+        makeApiRequest("all");
+
+
+        intiRecyclerView(rootView);
+
+        return rootView;
 
 
     }
 
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-
-        // load list place from server (api)
-        loadPlaceListFromServer();
+    private void openDetailView(CategoryDomain categoryDomain) {
+        Intent intent = new Intent(getActivity(), DetailActivity.class);
+        intent.putExtra("itemId", categoryDomain.getId());
+        intent.putExtra("itemName", categoryDomain.getName());
+        intent.putExtra("itemLocation", categoryDomain.getLocation());
+        intent.putExtra("itemDescription", categoryDomain.getDescription());
+        intent.putExtra("imageUrl", categoryDomain.getImageUrl());
+        intent.putExtra("itemMap", categoryDomain.getMap());
+        intent.putExtra("itemarea", categoryDomain.getArea());
+        intent.putExtra("itemseason", categoryDomain.getSeason());
+        intent.putExtra("itemroad", categoryDomain.getRoad());
+        intent.putExtra("itemfacity", categoryDomain.getFacity());
+        intent.putExtra("itemfabuilding", categoryDomain.getFabuilding());
+        intent.putExtra("itemlink", categoryDomain.getLink());
+        startActivity(intent);
     }
-
-    private void loadPlaceListFromServer() {
-
-        // create retrofit client
+    private void makeApiRequest(String category) {
 
         Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("https://heanghenglong-ite.github.io/madapi/")
+                .baseUrl("https://tochhit.github.io/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         // Create Service object
         ApiService apiService = httpClient.create(ApiService.class);
 
-        // Load place list from server
-        Call<List<PopularDomain>> task = apiService.loadPopularList();
-        task.enqueue(new Callback<List<PopularDomain>>() {
-            @Override
-            public void onResponse(Call<List<PopularDomain>> call, Response<List<PopularDomain>> response) {
+        Call<List<CategoryDomain>> call = apiService.getTourismSpots();
 
+        call.enqueue(new Callback<List<CategoryDomain>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<CategoryDomain>> call, @NonNull Response<List<CategoryDomain>> response) {
                 if (response.isSuccessful()) {
-                    List<PopularDomain> placeList = response.body();
-                    showPlaceList(placeList);
-                }else {
-                    Toast.makeText(getContext(), "Load Place list failed!",Toast.LENGTH_LONG).show();
+                    List<CategoryDomain> categoryDomains = response.body();
+                    if (categoryDomains != null && !categoryDomains.isEmpty()) {
+                        originalCategoryDomains = new ArrayList<>(categoryDomains);  // Save the original data
+                        if ("all".equals(category)) {
+                            adapter.setData(categoryDomains);
+                        } else {
+                            // Filter by category
+                            List<CategoryDomain> filteredList = filterByCategory(categoryDomains, category);
+                            adapter.setData(filteredList);
+                        }
+                    } else {
+                        Log.e("APIResponse", "Empty or null response body");
+                        Toast.makeText(getActivity(), "Error: Empty response", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Log.e("APIResponse", "Error: " + response.message());
+                    Toast.makeText(getActivity(), "Error: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<List<PopularDomain>> call, Throwable t) {
-                Toast.makeText(getContext(), "Load Place list failed!",Toast.LENGTH_LONG).show();
-                Log.e("[HomeFragment]","Load Place Failed:" + t.getMessage());
-                t.printStackTrace();
+            public void onFailure(@NonNull Call<List<CategoryDomain>> call, @NonNull Throwable t) {
+                Log.e("APIResponse", "Network error: " + t.getMessage());
+                Toast.makeText(getActivity(), "Network error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void showPlaceList(List<PopularDomain> placeList){
-
-        // Create layout manager
-        LinearLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
-        binding.recyclerView.setLayoutManager(layoutManager);
-
-        // create adapter
-        PopularAdapter adapter = new PopularAdapter();
-        adapter.submitList(placeList);
-        binding.recyclerView.setAdapter(adapter);
+    private List<CategoryDomain> filterByCategory(List<CategoryDomain> categoryDomains, String category) {
+        // Filter the list based on the selected category
+        // You can implement your own logic here
+        // For simplicity, this example filters by matching the category name
+        return categoryDomains.stream()
+                .filter(item -> category.equalsIgnoreCase(item.getCategory()))
+                .collect(Collectors.toList());
     }
+
+
     private void intiRecyclerView(View view){
         ArrayList<MoreDomain> moreList = new ArrayList<>();
         moreList.add(new MoreDomain("Beach","cat1"));

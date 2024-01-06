@@ -1,7 +1,6 @@
 package kh.edu.rupp.ite.cambodiatourism.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,96 +8,82 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
-import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.squareup.picasso.Picasso;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 
-import kh.edu.rupp.ite.cambodiatourism.Activity.DetailActivity;
-import kh.edu.rupp.ite.cambodiatourism.Activity.PlaceDetailsActivity;
-import kh.edu.rupp.ite.cambodiatourism.databinding.ViewholderPopularBinding;
 import kh.edu.rupp.ite.cambodiatourism.model.Domain.CategoryDomain;
-import kh.edu.rupp.ite.cambodiatourism.model.Domain.PopularDomain;
 import kh.edu.rupp.ite.cambodiatourism.R;
 
-public class PopularAdapter extends ListAdapter<PopularDomain, PopularAdapter.PlaceViewHolder> {
+public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
 
-    public PopularAdapter() {
+    private Context context;
+    private List<CategoryDomain> categoryDomains;
+    private OnItemClickListener onItemClickListener;  // Added listener interface
 
-        super(new DiffUtil.ItemCallback<PopularDomain>() {
-            @Override
-            public boolean areItemsTheSame(@NonNull PopularDomain oldItem, @NonNull PopularDomain newItem) {
-                return oldItem == newItem;
-            }
-
-            @Override
-            public boolean areContentsTheSame(@NonNull PopularDomain oldItem, @NonNull PopularDomain newItem) {
-                return oldItem.getId() == newItem.getId();
-            }
-        });
+    public PopularAdapter(Context context, List<CategoryDomain> categoryDomains) {
+        this.context = context;
+        this.categoryDomains = categoryDomains;
     }
-
-
 
     @NonNull
     @Override
-    public PlaceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        ViewholderPopularBinding binding = ViewholderPopularBinding.inflate(layoutInflater, parent, false);
-        return new PlaceViewHolder(binding);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.viewholder_popular, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlaceViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        CategoryDomain categoryDomain = categoryDomains.get(position);
+        holder.titleTxt.setText(categoryDomain.getName());
+        //holder.textLocation.setText(categoryDomain.getLocation());
+        //holder.textDescription.setText(categoryDomain.getDescription());
 
-        final PopularDomain item = getItem(position);
-        holder.bind(item);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), DetailActivity.class);
-                intent.putExtra("PlaceId", item.getId());
-                v.getContext().startActivity(intent);
+        // Load image using Picasso (add Picasso library to your dependencies)
+        Picasso.get().load(categoryDomain.getImageUrl()).into(holder.viewimage);
+
+        // Set click listener on the item view
+        holder.itemView.setOnClickListener(v -> {
+            if (onItemClickListener != null) {
+                onItemClickListener.onItemClick(categoryDomain);
             }
         });
-
     }
 
-    public static class PlaceViewHolder extends RecyclerView.ViewHolder{
+    @Override
+    public int getItemCount() {
+        return categoryDomains.size();
+    }
 
-        private final ViewholderPopularBinding itemBinding;
-        private final Context context;
-        public PlaceViewHolder(ViewholderPopularBinding itemBinding){
-            super(itemBinding.getRoot());
-            this.itemBinding = itemBinding;
-            this.context = itemBinding.getRoot().getContext();
-        }
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView viewimage;
+        TextView titleTxt, textLocation, textDescription;
 
-        public void bind(PopularDomain popularDomain){
-            Picasso.get().load(popularDomain.getImageUrl()).into(itemBinding.viewimage);
-            itemBinding.titleTxt.setText(popularDomain.getTitle());
-
-            // Set click listener on item view
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Start the PlaceDetailActivity and pass the place id
-                    Intent intent = new Intent(context, PlaceDetailsActivity.class);
-
-                    intent.putExtra("placeId", popularDomain.getId());
-                    context.startActivity(intent);
-                }
-            });
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            viewimage = itemView.findViewById(R.id.viewimage);
+            titleTxt = itemView.findViewById(R.id.titleTxt);
+            //textLocation = itemView.findViewById(R.id.textLocation);
+            //textDescription = itemView.findViewById(R.id.textDescription);
         }
     }
 
+    public void setData(List<CategoryDomain> newData) {
+        categoryDomains.clear();
+        categoryDomains.addAll(newData);
+        notifyDataSetChanged();
+    }
+
+    // Setter for the click listener
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
+
+    // Interface for item click events
+    public interface OnItemClickListener {
+        void onItemClick(CategoryDomain categoryDomain);
+    }
 }
