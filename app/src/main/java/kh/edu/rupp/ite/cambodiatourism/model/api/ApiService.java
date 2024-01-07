@@ -20,8 +20,8 @@ public interface ApiService {
     @GET("")
     Call<List<MoreDomain>> loadMoreList();
 
-    @GET("https://github.com/Chandolakao/explorer_api")
-    Call<List<ExploreDomain>> loadExploreList();
+    @GET("host_api/chhit.json")
+    Call<List<CategoryDomain>> getTourism();
 
     @GET("")
     Call<List<CategoryDomain>> loadCategoryList();
