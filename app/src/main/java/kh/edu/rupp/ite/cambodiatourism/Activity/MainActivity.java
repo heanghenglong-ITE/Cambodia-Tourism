@@ -22,8 +22,6 @@ import kh.edu.rupp.ite.cambodiatourism.R;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationView bottomNavigationView;
-    private RecyclerView.Adapter adapterPopular,adapterMore;
-    private  RecyclerView recyclerViewPopular, recyclerViewMore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import kh.edu.rupp.ite.cambodiatourism.R;
 import kh.edu.rupp.ite.cambodiatourism.databinding.ActivityLoginBinding;
 
@@ -29,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         TextView textViewClick = findViewById(R.id.register_type);
+        TextView textViewClickHome = findViewById(R.id.get_start);
         ImageView imageViewClickFb = findViewById(R.id.facebook);
         ImageView imageViewClickIg = findViewById(R.id.google);
         ImageView imageViewClickTt = findViewById(R.id.twitter);
@@ -36,6 +39,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 navigateToAnotherActivity();
+            }
+        });
+
+        textViewClickHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToScreen();
             }
         });
         imageViewClickFb.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +88,10 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void navigateToAnotherActivity(){
         Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+    private void navigateToScreen(){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
